@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 municipio = "medellín"
 archivo = "Temperatura_Maxima_del_Aire"
@@ -7,7 +6,6 @@ archivo = "Temperatura_Maxima_del_Aire"
 path = "G:\\Mi unidad\\Nicolás\\Universidad Nacional\\Especializacion_analitica\\1er Semestre\\Sistemas_masivos_bd\\Trabajo_Final\\Datos\\"
 
 TextFileReader = pd.read_csv(path+archivo+".csv", chunksize=1e6)  # the number of rows per chunk
-
 df = pd.DataFrame([])
 for df_chunk in TextFileReader:
     # df_chunkList.append(df_chunk)
