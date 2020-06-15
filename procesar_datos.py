@@ -3,16 +3,21 @@ import csv
 
 class Datos:
     """# Clase para leer y almacenar los Datos leídos desde un archivo plano CSV usando Pandas
+    Inicialización de Datos
+
+    Args:
+        separador (str): Separador de columnas. Defaults to ','.
+        archivo (str): Nombre del archivo. Defaults to None.
+        path (str): Ruta del archivo. Defaults to None.
+        columns_fecha (list): Lista de columnas de fecha a procesar. Defaults to None.
+        Pasos:
+        1. Verificar el nombre del archivo e ingresarlo en la variable archivo.
+        2. Ingrese la ruta de la carpeta donde está alojado el archivo
+        3. Si requiere, procese las columnas con formato de datetime, para ello use la lista columns_fecha
+        4. Si lo requiere, filtre las columnas usando el diccionario dict_filtro. La llave es la columna a filtrar, el contenido es el filtro
+        5. Verificar el tamaño, si es muy grande (superior a 1M líneas) usar el método leer_archivo_pesado
     """
     def __init__(self,separador=',', archivo=None, path=None, columns_fecha=None):
-        """Inicialización de Datos
-
-        Args:
-            separador (str): Separador de columnas. Defaults to ','.
-            archivo (str): Nombre del archivo. Defaults to None.
-            path (str): Ruta del archivo. Defaults to None.
-            columns_fecha (list): Lista de columnas de fecha a procesar. Defaults to None.
-        """
         self.separador = separador
         self.archivo = archivo
         self.path = path
