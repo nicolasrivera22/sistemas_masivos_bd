@@ -25,10 +25,6 @@ class Datos:
         if dict_filtro is None:
             df = pd.read_csv(self.path+self.archivo+".csv", delimiter=self.separador)
         else:
-            file = open(self.path+self.archivo+".csv")
-            reader = csv.reader(file)
-            lines = len(list(reader))
-            print(lines)
             df = pd.read_csv(self.path+self.archivo+".csv", delimiter=self.separador)
         self.df = df
         return df
@@ -62,20 +58,3 @@ class Datos:
             self.df[fecha] = pd.to_datetime(self.df[fecha])
         return self.df
     
-    # def exportar_csv(self, nombre=None):
-    #     if nombre is None:
-    #         self.df.to_csv(self.path + self.archivo + '_procesados.csv')
-    #     else:
-    #         self.df.to_csv(self.path + nombre)
-
-    # separador = ';'
-    # archivo = "Medellin\\captura"
-    # path = "G:\\Mi unidad\\Nicolás\\Universidad Nacional\\Especializacion_analitica\\1er Semestre\\Sistemas_masivos_bd\\Trabajo_Final\\Datos\\"
-    # columns_fecha = ["fecha_hecho"]
-
-    # df = pd.read_csv(path+archivo+".csv", delimiter=separador)
-
-    # for col in columns_fecha:
-    #     df[col] = pd.to_datetime(df[col])
-
-    # df.to_csv(path + archivo + "_procesados.csv")
